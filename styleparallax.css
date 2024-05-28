@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /*It's like telling the browser, "Hey, include everything inside the box when calculating its size!"*/
+}
+/*to include all contents inside wrapper;*/
+#wrapper
+{
+    height: 100vh;
+    overflow-x:hidden; /*not to scroll in the x direcrtion (right or left)*/
+    overflow-y: auto; /*yes we have to scroll in y dir*/
+    perspective: 10px;/*irrespective of the value*/
+    /*'on' the perspective in order to activate z-index 3d */
+
+}
+
+.container{
+    position : relative;
+
+    display : flex;
+    justify-content: center;
+    align-items: center;
+ /* to make the 'adventure text in centre activate the display : flex and justify and align both of them in the center*/
+    height : 100%;
+    transform-style: preserve-3d;
+    /* to preserve 3d property and not to delete them */
+    z-index:-1;
+    /* to enable neat labelling , adventure text was hidden if not used
+    as by default z-index:0 (or positive) will hide it rather than to hide it*/
+    
+}
+.background,.foreground{
+    position : absolute;
+    /*in order to make bg and fg overlap*/
+    /*since to make the absolute positioning the ancestor position must be nons static - therefore ;
+    .container { position : relative; }*/
+    height : 100%;
+    width : 100%;
+    z-index : -1;
+     /* to enable neat labelling , adventure text was hidden if not used
+    as by default z-index:0 (or positive) will hide it rather than to hide it*/
+
+    object-fit: cover;
+    /*it specify that the image should be resized to fit its container*/
+}
+.background{
+    transform:translateZ(-40px) scale(6);
+    /* from the eye view make bg far than fg in view of eye (Z axis) 
+    scaling makes them increase the size keeping the distance same*/
+}
+.foreground{
+    transform: translateZ(-20px) scale(3);
+     /* from the eye view make fg near than bg in view of eye (Z axis) 
+    scaling makes them increase the size keeping the distance same*/
+}
+
+h1{
+    position : absolute;
+    font-size: 10rem;
+    color : rgba(255, 255, 255, 0.704);
+    text-shadow : 0 0 10px rgba(0,0,0,0.3);
+    top: 6rem;
+    letter-spacing : 4px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+section{
+    background-color: rgb(45,45,45);
+    color:white;
+    padding:5rem 0;
+}
+.bg{
+    position:relative;
+    width: 100%;
+    background-attachment: fixed;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+.desc{
+    position: absolute;
+    padding: 0.5rem 2.5rem;
+    background-color: white;
+    color: black;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%)translateX(-50%);
+    font-size: 3.5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.bg1{
+   background-image: url(sport-1.jpg);
+  
+}
+.bg2{
+    background-image: url(sport-2.jpg);
+
+ }
+ .bg3{
+    background-image: url(sport-3.jpg);
+ }
+
+
+ .secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .desc{
+
+ }
